@@ -1,0 +1,26 @@
+Rock Paper Scissors
+import random
+Player2 = random.randint(0, 3)
+print("1 = Rock\n2 = Scissors\n3 = Paper") 
+
+Player1 = int(input("Please enter your choice: "))
+if (Player1 == 1 and Player2 == 1) or (Player1 == 2 and Player2 == 2) or (Player1 == 3 and Player2 == 3):
+    print("Match is Draw")
+elif Player1 == 1 and Player2 == 2:
+    print("Player 1 wins")
+    print("Rock crushes scissors")
+elif Player1 == 2 and Player2 == 1:
+    print("Player 2 wins")
+    print("Rock crushes scissors")
+elif Player1 == 2 and Player2 == 3:
+    print("Player 1 wins")
+    print("Scissors cuts paper")
+elif Player1 == 3 and Player2 == 2:
+    print("Player 2 wins")
+    print("Scissors cuts paper")
+elif Player1 == 1 and Player2 == 3:
+    print("Player 1 wins")
+    print("Paper covers rock")
+elif Player1 == 3 and Player2 == 1:
+    print("Player 2 wins")
+    print("Paper covers rock")
