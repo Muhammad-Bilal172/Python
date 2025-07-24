@@ -1,0 +1,41 @@
+# Hangman Game
+import random
+wordList = ["Bilal", "Ahmad", "Soban"]
+
+randomWord = random.choice(wordList)
+
+blankGuess = "_" * len(randomWord)
+
+life = 5
+
+isGameLoose = False
+print("You have", life, " lifes")
+print(randomWord)
+
+while not isGameLoose:
+    guessLetter = input("Please enter the letter: ").lower()
+
+    if guessLetter not in randomWord.lower():
+        life = life - 1
+        if life == 0:
+            isGameLoose = True
+            break
+
+    else:
+        newWord = list(blankGuess)
+
+        for i in range(len(randomWord)):
+            if randomWord[i].lower() == guessLetter:
+                newWord[i] = randomWord[i]
+        blankGuess = "".join(newWord)
+        
+        if blankGuess.lower() == randomWord.lower():
+            isGameLoose = True
+            break
+
+        if "_" not in blankGuess:
+            isGameLoose = True
+            break
+
+    print("Now you have", life, "lifes")
+print(blankGuess)
