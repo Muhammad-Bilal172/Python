@@ -1,0 +1,37 @@
+# Caesor Cipher
+def encode(word, number):
+    length = len(word)
+    for i in range(0, length):
+        newWord = ord(word[i]) + number
+        print(chr(newWord), end = "")
+    print()
+    
+def decode(word, number):
+    length = len(word)
+    for i in range(0, length):
+        newWord = ord(word[i]) - number
+        print(chr(newWord), end = "")
+    print()
+
+againTry = True
+
+print("Welcome to Caesor Cipher")
+print()
+while againTry:
+    encodeOrDecode = input("Type 'encode' to encrypt or type 'decode' to descrypt: ")
+
+    if encodeOrDecode == "encode" or encodeOrDecode == "Encode" or encodeOrDecode == "ENCODE":
+        word = input("Type your message: ")
+        number = int(input("Type the number: "))
+        encode(word, number)
+
+    elif encodeOrDecode == "decode" or encodeOrDecode == "Decode" or encodeOrDecode == "Decode":
+        word = input("Type your message: ")
+        number = int(input("Type the number: "))
+        decode(word, number)
+
+    yesOrNO = input("If you want to play type 'Yes' if do not type 'No': ")
+    if yesOrNO == "no" or yesOrNO == "NO" or yesOrNO == "No":
+        againTry = False
+        break
+
