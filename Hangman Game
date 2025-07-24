@@ -19,6 +19,7 @@ while not isGameLoose:
         life = life - 1
         if life == 0:
             isGameLoose = True
+            print("You life is 0. You have lost the game")
             break
 
     else:
@@ -28,13 +29,10 @@ while not isGameLoose:
             if randomWord[i].lower() == guessLetter:
                 newWord[i] = randomWord[i]
         blankGuess = "".join(newWord)
-        
+
         if blankGuess.lower() == randomWord.lower():
             isGameLoose = True
-            break
-
-        if "_" not in blankGuess:
-            isGameLoose = True
+            print("You have won the game")
             break
 
     print("Now you have", life, "lifes")
