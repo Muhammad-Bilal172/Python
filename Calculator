@@ -1,0 +1,40 @@
+# Calculator
+def add(a, b):
+    return a + b
+def subtract(a, b):
+    return a - b
+def multiply(a, b):
+    return a * b
+def divide(a, b):
+    return a / b
+
+num1 = int(input("Please enter the first number: "))
+withPreviousNum = False
+againTry = ""
+while not withPreviousNum: 
+    print("+, -, *, /")
+    operation = input("Please enter the operation: ")
+
+    num2 = int(input("Please enter the second number: "))
+
+    result = 0
+    if operation == "+":
+        result = add(num1, num2)
+        print(result)
+    elif operation == "-":
+        result = subtract(num1, num2)
+        print(result)
+    elif operation == "*":
+        result = multiply(num1, num2)
+        print(result)
+    elif operation == "/":
+        result = divide(num1, num2)
+        print(result)
+
+    againTry = input(f"Press 'y' for continue operation with {result} or 'n' to exit: ")
+    if againTry == "n" or againTry == "N":
+        withPreviousNum = True
+        break
+    elif againTry == "y" or againTry == "Y":
+        num1 = result
+        withPreviousNum = False         
