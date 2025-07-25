@@ -1,0 +1,23 @@
+# Auction Program
+def highestBidder(bidderDictionary, key):
+    max = bidderDictionary[key]
+    if max < bidderDictionary[key]:
+        max = bidderDictionary
+    print(f"The maximum bidder is {key}, with {max}")
+
+
+bidderDictionary = {}
+
+person_Over = False
+
+yesOrNo = ""
+
+while not person_Over:
+    key = input("Please enter your name: ")
+    value = int(input("Please enter your bid: "))
+    bidderDictionary[key] = value
+    yesOrNo = input("Please enter yes for more bidders and no for exit: ")
+    if yesOrNo == "no" or yesOrNo == "No" or yesOrNo == "NO":
+        person_Over = False
+        break
+highestBidder(bidderDictionary, key)
