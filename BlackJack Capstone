@@ -1,0 +1,87 @@
+# BlackJack Capstone
+import random
+# For Sum of all the numbers in the list
+def CardSum(PlayerNumber):
+    PlayerSum = 0
+    for i in PlayerNumber:
+        PlayerSum = PlayerSum + i
+    return PlayerSum
+
+again_game = False
+while not again_game:
+    cardNumbers = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+    # random numbers of the computer
+    ComputerNumber = list(random.sample(cardNumbers, 2))
+
+    print("Computer first Number =", ComputerNumber[0])
+
+    # random numbers of the player
+    PlayerNumber = list(random.sample(cardNumbers, 2))
+
+    print("My Numbers = ", PlayerNumber)
+    print("The Player card sum is ", end = "")
+    SumOfPlayer = CardSum(PlayerNumber)
+    print(SumOfPlayer)
+
+    SumOfComputer = CardSum(ComputerNumber)
+
+    game_over = False
+    # choice for another card or pass
+
+    while not game_over:
+        choice = input("Press 'y' to get another card or 'n' to pass: ")
+        if choice == "y":
+            # For Player
+            newPlayerNumber = list(random.sample(cardNumbers, 1))
+
+            PlayerNumber = PlayerNumber + newPlayerNumber
+
+            print("My Numbers = ", PlayerNumber)
+
+            print("The Player card sum is ", end = "")
+            SumOfPlayer = CardSum(PlayerNumber)
+            print(SumOfPlayer)
+            if SumOfPlayer > 21:
+                print("Computer wins because Sum of cards of Player exceeds 21!")
+                game_over = True
+                break
+
+            # For Computer 
+            newComputerNumber = list(random.sample(cardNumbers, 1))
+
+            ComputerNumber = ComputerNumber + newComputerNumber
+
+            SumOfComputer = CardSum(ComputerNumber)
+            if SumOfComputer > 21:
+                print("Player wins because Sum of cards of Computer exceeds 21!")
+                game_over = True
+                break
+
+        elif choice == "n":  
+            if SumOfComputer > 21:
+                print("Player wins because Sum of cards of Computer exceeds 21!")
+                game_over = True
+                break
+            elif SumOfPlayer > 21:
+                print("Computer wins because Sum of cards of Player exceeds 21!")
+                game_over = True
+                break
+            elif SumOfPlayer > SumOfComputer:
+                print("Player wins because it has more points!")
+                game_over = True
+                break
+            elif SumOfComputer > SumOfPlayer:
+                print("Computer wins because it has more points!")
+                game_over = True
+                break
+            elif SumOfPlayer == SumOfComputer:
+                print("The match is draw because both have same points!")
+                game_over = True
+                break
+    yesOrNo = input("Press 'y' for again game and 'n' for exit: ")
+    if yesOrNo == "N" or yesOrNo == "n":
+        again_game = True
+        break
+    elif yesOrNo == "Y" or yesOrNo == "y":
+        again_game = False
