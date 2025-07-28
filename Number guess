@@ -1,0 +1,52 @@
+# Number guess
+import random
+print("Welcome to the number guessing game: ")
+
+randomNumber = random.randint(1, 101)
+
+print(randomNumber)
+
+choice = input("Please enter your choice 'easy' or 'hard': ")
+
+game_over = False
+if choice == "easy" or choice == "Easy" or choice == "EASY":
+    attemps = 10
+    while not game_over:
+        guessNumber = int(input("Please enter the guess number: "))
+        if guessNumber == randomNumber:
+            print("Your guess is correct!")
+            game_over = True
+        elif guessNumber > randomNumber:
+            print("Too high")
+            attemps = attemps - 1
+            if attemps < 1:
+                print("Your attemps are finish. You have lost the game! ")
+                game_over = True
+        elif guessNumber < randomNumber:
+            print("Too low")
+            attemps = attemps - 1
+            if attemps < 1:
+                print("Your attemps are finish. You have lost the game! ")
+                game_over = True
+        print("You have", attemps, "attemps")
+
+if choice == "hard" or choice == "Hard" or choice == "HARD":
+    attemps = 5
+    while not game_over:
+        guessNumber = int(input("Please enter the guess number: "))
+        if guessNumber == randomNumber:
+            print("Your guess is correct!")
+            game_over = True
+        elif guessNumber > randomNumber:
+            print("Too high")
+            attemps = attemps - 1
+            if attemps < 1:
+                print("Your attemps are finish. You have lost the game! ")
+                game_over = True
+        elif guessNumber < randomNumber:
+            print("Too low")
+            attemps = attemps - 1
+            if attemps < 1:
+                print("Your attemps are finish. You have lost the game! ")
+                game_over = True
+        print("You have", attemps, "attemps")
